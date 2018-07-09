@@ -16,6 +16,7 @@ parser.add_argument('-s', '--s-tag', action='store_true',
 
 def corpus2dictionary(corpus, project_name):
     pronunciation_dict = {}
+    pronunciation_dict_cleaned={}
     phones_list = set()
     phones_list.add('SIL')
     for line in corpus:
@@ -29,23 +30,21 @@ def corpus2dictionary(corpus, project_name):
             for pronunciation in pronunciations:
                 for phone in pronunciation.split():
                     phones_list.add(phone)
-            clean_word = arabic_utils.remove_diacritics(word)
-            if clean_word in pronunciation_dict:
-                for pronunciation in pronunciations:
-                    pronunciation_dict[clean_word].add(pronunciation)
-            else:
-                pronunciation_dict[clean_word] = set()
-                for pronunciation in pronunciations:
-                    pronunciation_dict[clean_word].add(pronunciation)
-
-    print('writing dic file')
-    with open(proj_name + '.dic', mode='w', encoding='utf-8') as dict_writer:
-        for w, phones in sorted(pronunciation_dict.items()):
-            for i, phone in enumerate(phones):
-                if i == 0:
-                    dict_writer.write('{}\t\t{}\n'.format(w, phone))
+            def add(localWord, dic):
+                if localWord in dic:
+                    for pronunciation in pronunciations:
+                        dic[localWord].add(pronunciation)
                 else:
-                    dict_writer.write('{}({})\t\t{}\n'.format(w, (i + 1), phone))
+                    dic[localWord] = set()
+                    for pronunciation in pronunciations:
+                        dic[localWord].add(pronunciation)
+            cleaned_word = arabic_utils.remove_diacritics(word)
+            add(word, pronunciation_dict)
+            add(cleaned_word, pronunciation_dict_cleaned)
+
+    print('writing 2 dic files')
+    writeFile(pronunciation_dict, proj_name + '_moshakal.dic')
+    writeFile(pronunciation_dict_cleaned, proj_name + '_cleaned.dic')
 
     print('writing phone file')
     with open(proj_name + '.phone', mode='w', encoding='utf-8') as phone_writer:
@@ -53,6 +52,15 @@ def corpus2dictionary(corpus, project_name):
             phone_writer.write(ph)
             phone_writer.write('\n')
 
+
+def writeFile(dic, fileName):
+    with open(fileName, mode='w', encoding='utf-8') as dict_writer:
+        for w, phones in sorted(dic.items()):
+            for i, phone in enumerate(phones):
+                if i == 0:
+                    dict_writer.write('{}\t\t{}\n'.format(w, phone))
+                else:
+                    dict_writer.write('{}({})\t\t{}\n'.format(w, (i + 1), phone))
 
 if __name__ == '__main__':
     args = parser.parse_args()
