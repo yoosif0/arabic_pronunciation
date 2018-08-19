@@ -1,0 +1,4 @@
+alphabet_detector
+re
+argparse
+operator
