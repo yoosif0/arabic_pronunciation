@@ -88,7 +88,7 @@ def phonetise_word(arabic_word):
                 result = isFixedWord2(word, result, word, pronunciations)
                 # Indicates whether current character is in an emphatic context or not. Starts with False
                 emphaticContext = False
-                word = u'bb' + word + u'ee'  # This is the end/beginning of word symbol. just for convenience
+                word = u'##' + word + u'##'  # This is the end/beginning of word symbol. just for convenience
 
                 phones = []  # Empty list which will hold individual possible word's pronunciation
 
@@ -103,6 +103,7 @@ def phonetise_word(arabic_word):
             afterNextCharacter = word[index + 2]  # Next-Next Character
             previousCharacter = word[index - 1]  # Previous Character
             beforePreviousCharacter = word[index - 2]  # Before Previous Character
+            
             emphaticContext = emphatic_context.getState(letter, nextCharacter)
             if letter in constants.unambiguousConsonantMap: 
                 phones.append(constants.unambiguousConsonantMap[letter])
