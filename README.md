@@ -1,3 +1,15 @@
+
+This project is based on the workings of 
+* Dr. Nawar Halabi https://github.com/nawarhalabi/Arabic-Phonetiser
+* Dr. Motaz Saad https://github.com/motazsaad/ara-pronunciation-tool
+* Dr. Taha Zerrouki
+
+
+## Dictionary Production
+
+```
+python corpus2cmudict.py -i nawar_corpus_tashkeel.txt -p nawar_bw_tashkeel
+```
 # ara-pronunciation-tool
 
 A python tool that converts Arabic diacritised text to a sequence of phonemes and create a pronunciation dictionary. 
@@ -11,31 +23,4 @@ see https://en.wikipedia.org/wiki/Buckwalter_transliteration and http://www.qamu
 
 
 
-## test with corpus2cmudict.py on text with diacritics 
-```
-python corpus2cmudict.py -i nawar_corpus_tashkeel.txt -p nawar_bw_tashkeel
-```
-
-## test with corpus2cmudict.py on text without diacritics 
-```
-python corpus2cmudict.py -i nawar_corpus_plain.txt -p nawar_bw_plain
-```
- 
- 
- 
-## test on text with diacritics 
-```
-python phonetise_Arabic.py -i nawar_corpus_tashkeel.txt
-
-python dict2cmudict.py -i nawar_corpus_tashkeel.txt.dict -p nawar_bw_tashkeel
-
-```  
-
-## test on text without diacritics 
-```
-python phonetise_Arabic.py nawar_corpus.txt
-
-python dict2cmudict.py -i dict -p nawar_bw_plain
-
-```  
 
