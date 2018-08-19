@@ -34,3 +34,6 @@ phonetise_Arabic.phonetise_word("نُتَابِعُهَا")
 ### Notes
 * Travis auto deployment to Pypi is currenlty not working
 
+#### Master branch build status: 
+![](https://travis-ci.org/youssefsharief/arabic-pronunciation.svg?branch=master)
+
