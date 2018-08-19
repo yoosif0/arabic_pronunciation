@@ -2,14 +2,16 @@ from os import path
 
 from setuptools import setup
 
-with open(path.join(path.dirname(__file__), 'README.md'), encoding="utf-8") as readme_file:
-    LONG_DESCRIPTION = readme_file.read()
+def readme():
+    with open('README.md', encoding="utf-8") as f:
+        return f.read()
 
 setup(
     name='arabic_pronunciation',
-    version=0.1,
+    version="0.2.2",
     description='Pronounce Arabic words on the fly',
-    long_description=LONG_DESCRIPTION,
+    long_description=readme(),
+    long_description_content_type='text/markdown',
     author='Youssef Sherif',
     author_email='sharief@aucegypt.edu',
     url='https://github.com/youssefsharief/arabic_pronunciation.git',
