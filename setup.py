@@ -2,7 +2,7 @@ from os import path
 
 from setuptools import setup
 
-with open(path.join(path.dirname(__file__), 'README.md')) as readme_file:
+with open(path.join(path.dirname(__file__), 'README.md'), encoding="utf-8") as readme_file:
     LONG_DESCRIPTION = readme_file.read()
 
 setup(

@@ -1,4 +1,4 @@
-from constants import consonants, emphatics, forwardEmphatics
+from arabic_pronunciation.constants import consonants, emphatics, forwardEmphatics
 
 def getState(letter, nextCharacter):
     emphaticContext = False

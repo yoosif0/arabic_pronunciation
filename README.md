@@ -1,25 +1,34 @@
 
+## Arabic Pronunciation
+
 This project is based on the workings of 
 * Dr. Nawar Halabi https://github.com/nawarhalabi/Arabic-Phonetiser
 * Dr. Motaz Saad https://github.com/motazsaad/ara-pronunciation-tool
 * Dr. Taha Zerrouki
 
+I just refactored the code and added an api wrapper for it to be used easily through installing a package
 
-## Dictionary Production
+## Usage
+```python
+from arabic_pronunciation import phonetise_Arabic
+
+phonetise_Arabic.phonetise_word("بِمُسْتَطِيل")
+>>> ['b i0 m u0 s t A T ii0 l']
+
+phonetise_Arabic.phonetise_word("نُتَابِعُهَا")
+>>> ['n u0 t aa b i0 E u0 h aa', 'n u0 t aa b i0 E u0 h a']
 
 ```
-python corpus2cmudict.py -i nawar_corpus_tashkeel.txt -p nawar_bw_tashkeel
-```
-# ara-pronunciation-tool
 
-A python tool that converts Arabic diacritised text to a sequence of phonemes and create a pronunciation dictionary. 
 
-This code  is based on https://github.com/nawarhalabi/Arabic-Phonetiser
+## Tests
+* `python -m pytest`
 
-Modifications mainly make the code in https://github.com/nawarhalabi/Arabic-Phonetiser compatible with python 3, and provide easy to use cmd tool to build the pronunciation dictionary. 
+## Static Dictionary Production
 
-The pronunciation is generated based on Buckwalter transliteration
-see https://en.wikipedia.org/wiki/Buckwalter_transliteration and http://www.qamus.org/transliteration.htm for more information 
+* Add your corpus to the root of this project
+* `python arabic_pronunciation/corpus2cmudict.py -i {corpus_name}.txt -p {corpus_name}`
+* It might take long time to for large corpuses and the command line might not show that the process is going on but it is.
 
 
 

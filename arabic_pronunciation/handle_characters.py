@@ -1,4 +1,4 @@
-from constants import diacritics, ambiguousConsonantMap, vowelMap, diacritics, maddaMap, unambiguousConsonantMap, diacriticsWithoutShadda, consonants
+from arabic_pronunciation.constants import diacritics, ambiguousConsonantMap, vowelMap, diacritics, maddaMap, unambiguousConsonantMap, diacriticsWithoutShadda, consonants
 
 
 def lam(beforePreviousCharacter, previousCharacter, nextCharacter, afterNextCharacter):

@@ -3,8 +3,8 @@ import operator
 import re
 import collections
 
-import phonetise_Arabic
-from arutils import arabic_utils
+from arabic_pronunciation import phonetise_Arabic
+import arabic_pronunciation.arabic_utils as arabic_utils
 
 parser = argparse.ArgumentParser(description='extracts dictionary and phones from a corpus')
 parser.add_argument('-i', '--input', type=argparse.FileType(mode='r', encoding='utf-8'),

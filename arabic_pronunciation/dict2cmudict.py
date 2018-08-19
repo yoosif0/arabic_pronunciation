@@ -1,10 +1,6 @@
 import argparse
-
 from alphabet_detector import AlphabetDetector
-
-import phonetise_Arabic
-from arutils import arabic_utils
-from buckwalterToArabic import buckwalterToArabic
+from arabic_pronunciation import buckwalterToArabic, phonetise_Arabic, arabic_utils
 
 parser = argparse.ArgumentParser(description='convert dict to cmu dict format')
 parser.add_argument('-i', '--input', type=argparse.FileType(mode='r', encoding='utf-8'),

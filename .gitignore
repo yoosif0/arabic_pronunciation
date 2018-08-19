@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 *.dic
 *.txt
+*.phone
 # C extensions
 *.so
 

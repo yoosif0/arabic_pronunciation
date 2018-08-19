@@ -5,13 +5,7 @@ import argparse
 import os
 import re
 
-from arutils import arabic_utils
-import constants
-import handle_characters
-import emphatic_context
-from remove_duplicates import remove_duplicates
-from pronounciations_from_phones import get_different_possible_pronounciations
-from convert_from_arabic_to_phones import convert
+from arabic_pronunciation import arabic_utils, constants,handle_characters,emphatic_context,remove_duplicates, pronounciations_from_phones, convert_from_arabic_to_phones
 
 
 
@@ -74,7 +68,7 @@ def phonetise_word(arabic_word):
         # Add empty entry that will hold this utterance's pronuncation
         utterances_pronunciations_with_boundaries.append('')
 
-        utterance = convert(utterance)
+        utterance = convert_from_arabic_to_phones.convert(utterance)
         # ---------------------------
         word_index = -1
 
@@ -130,8 +124,8 @@ def phonetise_word(arabic_word):
                 # Alif could be ommited in definite article and beginning of some words
                 if letter in [u'a', u'A', u'Y']:
                     phones += handle_characters.alef(beforePreviousCharacter, previousCharacter, letter, nextCharacter, emphaticContext)
-    pronunciations += get_different_possible_pronounciations(phones)
-    pronunciations = remove_duplicates(pronunciations)
+    pronunciations += pronounciations_from_phones.get_different_possible_pronounciations(phones)
+    pronunciations = remove_duplicates.remove_duplicates(pronunciations)
 
     return [' '.join(item) for item in pronunciations if len(item) >=len(arabic_word)]
 

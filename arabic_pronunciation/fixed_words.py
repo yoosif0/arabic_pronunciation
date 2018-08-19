@@ -1,5 +1,5 @@
 import re
-from constants import unambiguousConsonantMap, fixedWords
+from arabic_pronunciation.constants import unambiguousConsonantMap, fixedWords
 
 # modification in isFixedWord2 is just to return the pronunciations without the word
 def isFixedWord2(word):
