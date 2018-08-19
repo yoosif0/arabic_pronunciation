@@ -2,8 +2,7 @@ from constants import consonants, emphatics, forwardEmphatics
 
 def getState(letter, nextCharacter):
     emphaticContext = False
-    if (letter in consonants + [u'w', u'y'] and not letter in emphatics + [
-                    u'r'""", u'l'"""]):  # non-emphatic consonants (except for Lam and Ra) change emphasis back to False
+    if (letter in consonants + [u'w', u'y'] and not letter in emphatics + [ u'r', u'l']):
         emphaticContext = False
     if (letter in emphatics):  # Emphatic consonants change emphasis context to True
         emphaticContext = True
