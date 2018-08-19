@@ -1,0 +1,12 @@
+language: python
+python:
+- '3.6'
+script:
+- python -m pytest
+deploy:
+  provider: pypi
+  user: youssef_sherif
+  password:
+    secure: gv+54jwv8OwvbtZ4/zLfB6w/+55vqNUjqtV5fabs3VcimHrKTS6EBosQTX+TLP2RHwBUaz2LL2qHBQGd3jcDw4MkUMFNpN17j8XUjWlaetwp75LpTl5D7fIrc02qsAzQOW/iIN/p1JCuU5w3vi7R9ILWLr+c4au7m/FzKbcnV54hym7mLJf9NYUWtVEwp3NoIjniakDIBOIXobzEbdxHqW8KkMMFSRcWFc9zEaR4qzcW0RWXBJPBo716WmqTnj+HfnWfXZk2fKzHXsHf4LnMuIMiC4MhEymlZCoEVTIkAM3UQxTxusn9B9JaQoJ9IJiyoOGWxQChsusDXX37H6c6+CHH2sA4VUFEjURTrUqGIdgBgrIXEw0L4ISu/utuA3usHfDzUj28gRLQjSkxetuqHBvN+75wmGqRdTwbVuVARFDG6S9hWB3H8nm0vImV5UjhjPRIHiVN/ANB08Yw5YcdiiBMU0sw9za+BOxvIvUc+V5/WMEE1u0HcCKlcDJn9szPeBmBtuJxABT+281MiTjWJmJXlAfDcYVheapI2/jkkbo60ZuwmCpI8Sf+AXKnXh/wdzjdfABBr6RkMJ6uskzdIV5LDs2DFQajbHogg5PUGZrnU4cNBwORLT2pIYN4klGDV6npyCFhj7kKsq9O0/TLAe4nyuQ9lj10eUlePLKzyyk=
+  on:
+    branch: production
