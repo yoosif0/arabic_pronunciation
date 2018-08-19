@@ -4,6 +4,7 @@ from alphabet_detector import AlphabetDetector
 
 import phonetise_Arabic
 from arutils import arabic_utils
+from buckwalterToArabic import buckwalterToArabic
 
 parser = argparse.ArgumentParser(description='convert dict to cmu dict format')
 parser.add_argument('-i', '--input', type=argparse.FileType(mode='r', encoding='utf-8'),
@@ -23,7 +24,7 @@ if __name__ == '__main__':
             continue
         word = line.split()[0]
         phones = ' '.join(line.split()[1:])
-        arabic_word = arabic_utils.remove_diacritics(phonetise_Arabic.buckwalterToArabic(word))
+        arabic_word = arabic_utils.remove_diacritics(buckwalterToArabic(word))
         print(word, arabic_word)
         if arabic_word in cmu_dict:
             cmu_dict[arabic_word].add(phones)
