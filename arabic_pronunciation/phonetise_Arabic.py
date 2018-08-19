@@ -5,7 +5,6 @@ import argparse
 import os
 import re
 
-import findstress
 from arutils import arabic_utils
 import constants
 import handle_characters
