@@ -31,5 +31,6 @@ phonetise_Arabic.phonetise_word("نُتَابِعُهَا")
 * It might take long time to for large corpuses and the command line might not show that the process is going on but it is.
 
 
-
+### Notes
+* Travis auto deployment to Pypi is currenlty not working
 
