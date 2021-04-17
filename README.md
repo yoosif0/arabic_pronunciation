@@ -1,6 +1,10 @@
 
 ## Arabic Pronunciation
 
+This library is now archived and it has a problem dealing with atleast one mapping. Use this one instead https://github.com/youssefsharief/arabic_pronounce
+
+
+
 This project is based on the workings of 
 * Dr. Nawar Halabi https://github.com/nawarhalabi/Arabic-Phonetiser
 * Dr. Motaz Saad https://github.com/motazsaad/ara-pronunciation-tool
